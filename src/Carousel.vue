@@ -222,7 +222,7 @@ export default {
     return {
       showPrev: false,
       showNext: true,
-
+      owlObj: {},
       prevHandler: 'carousel_prev_' + this.generateUniqueId(),
       elementHandle: 'carousel_' + this.generateUniqueId(),
       nextHandler: 'carousel_next_' + this.generateUniqueId(),
@@ -281,6 +281,7 @@ export default {
       dotsContainer: this.dotsContainer,
       checkVisible: this.checkVisible,
     });
+    this.owlObj = owl.data('owl.carousel');
 
     $('#' + this.prevHandler).click(function() {
       owl.trigger('prev.owl.carousel');
@@ -321,6 +322,9 @@ export default {
     generateUniqueId() {
       return Math.random().toString(36).substring(2, 15);
     },
+    to(index){
+      this.owlObj.to(index);
+    }
   },
 };
 
