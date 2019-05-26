@@ -220,7 +220,7 @@ export default {
   },
   data: function() {
     return {
-      showPrev: false,
+      showPrev: true,
       showNext: true,
       owlObj: {},
       prevHandler: 'carousel_prev_' + this.generateUniqueId(),
@@ -299,21 +299,21 @@ export default {
 
     if (!this.loop) {
       owl.on('changed.owl.carousel', (event) => {
-        // start
-        if (event.item.index === 0) {
-          this.showPrev = false;
-          this.showNext = true;
-        } else {
-          const currnetel = Math.floor(event.item.index + event.page.size);
-          // last
-          if (currnetel === event.item.count) {
-            this.showPrev = true;
-            this.showNext = false;
-          } else {
-            this.showPrev = true;
-            this.showNext = true;
-          }
-        }
+        // // start
+        // if (event.item.index === 0) {
+        //   this.showPrev = false;
+        //   this.showNext = true;
+        // } else {
+        //   const currnetel = Math.floor(event.item.index + event.page.size);
+        //   // last
+        //   if (currnetel === event.item.count) {
+        //     this.showPrev = true;
+        //     this.showNext = false;
+        //   } else {
+        //     this.showPrev = true;
+        //     this.showNext = true;
+        //   }
+        // }
       });
     }
   },
